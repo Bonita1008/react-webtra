@@ -6,12 +6,17 @@ const teaTabs = [
         label: 'Trà Thái Nguyên Thượng Hạng',
         content: (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <img
-                    src="https://images.unsplash.com/photo-1506744038136-46273834b3fb"
-                    alt="Trà Thái Nguyên Thượng Hạng"
-                    className="rounded-xl shadow-xl w-11/12 h-72"
-                />
-                <p className="bg-[#d19f60] text-white text-center absolute w-auto h-auto p-1 left-[calc(43%)] mt-2 rounded-2xl">bán chạy</p>
+                <div className="relative w-11/12 h-72">
+                    <img
+                        src="https://images.unsplash.com/photo-1506744038136-46273834b3fb"
+                        alt="Trà Thái Nguyên Thượng Hạng"
+                        className="rounded-xl shadow-xl w-full h-full object-cover"
+                    />
+                    <p className="absolute top-2 right-2 bg-[#d19f60] text-white text-sm px-3 py-1 rounded-2xl shadow-md">
+                        bán chạy
+                    </p>
+                </div>
+
                 <div>
                     <h2 className="text-2xl font-serif font-bold text-green-900 mb-2">
                         Trà Thái Nguyên Thượng Hạng
@@ -98,21 +103,33 @@ const TeaProductUI = () => {
     const [activeTab, setActiveTab] = useState('thuong-hang');
 
     return (
-        <div className="max-w-7xl mx-auto pt-4 pb-10">
-            <div className="flex justify-center mb-6">
-                {teaTabs.map((tab) => (
-                    <button
-                        key={tab.id}
-                        onClick={() => setActiveTab(tab.id)}
-                        className={`px-4 py-2 rounded-lg font-medium border ${activeTab === tab.id ? 'bg-[#d19f60] text-white' : 'bg-yellow-100 text-yellow-700'
-                            }`}
-                    >
-                        {tab.label}
-                    </button>
-                ))}
+        <>
+            <div className="flex flex-col items-center py-12 px-4 bg-[#ffffff]" id="products">
+                <h2 className="text-3xl font-serif font-bold text-[#075e3b] mb-4 md:text-4xl">
+                    Sản Phẩm Tinh Hoa
+                </h2>
+                <div className="w-16 h-1 bg-orange-400 mb-6"></div>
+                <p className="text-center text-gray-700 max-w-2xl">
+                    Khám phá các sản phẩm trà Thái Nguyên chất lượng cao, được chọn lọc
+                    và chế biến theo phương pháp truyền thống.
+                </p>
             </div>
-            <div>{teaTabs.find((tab) => tab.id === activeTab).content}</div>
-        </div>
+            <div className="max-w-7xl mx-auto pt-4 pb-8">
+                <div className="flex justify-center mb-6">
+                    {teaTabs.map((tab) => (
+                        <button
+                            key={tab.id}
+                            onClick={() => setActiveTab(tab.id)}
+                            className={`px-4 py-2 rounded-lg font-medium border ${activeTab === tab.id ? 'bg-[#d19f60] text-white' : 'bg-yellow-100 text-yellow-700'
+                                }`}
+                        >
+                            {tab.label}
+                        </button>
+                    ))}
+                </div>
+                <div>{teaTabs.find((tab) => tab.id === activeTab).content}</div>
+            </div>
+        </>
     );
 }
 export default TeaProductUI;

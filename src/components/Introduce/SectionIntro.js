@@ -8,12 +8,14 @@ const SectionIntro = () => {
                 <img
                     src={bg1}
                     alt="Đường rừng"
-                    className="w-full h-full object-cover rounded-lg shadow-xl absolute z-10 md:static md:w-auto md:h-auto"
+                    className="w-full h-full object-cover rounded-lg shadow-xl absolute md:static z-10"
                 />
                 <img
                     src={bg2}
                     alt="Flowers"
-                    className="ring-4 ring-white ring-offset-0 drop-shadow-md absolute top-[calc(68%)] left-[calc(72%)] w-1/3 h-32 object-cover rounded-xl"
+                    className="ring-4 ring-white drop-shadow-md absolute z-20
+                                bottom-4 right-4 md:top-[68%] md:left-[72%]
+                                w-[33%] h-30 object-cover rounded-xl"
                 />
             </div>
             <div className="md:w-1/2 p-4 md:p-8 mt-12 md:mt-0">
